@@ -13,3 +13,4 @@ log of intallation
 -pip install Braindecode==0.4.85
 -conda install -c fastai fastai==1.0.60
 -conda install -c anaconda seaborn==0.10.0
+

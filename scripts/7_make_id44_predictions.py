@@ -56,5 +56,3 @@ if __name__ == "__main__":
     predictions=main()
     print(predictions)
     print( predictions.groupby('subjects').mean())
-    
-
