@@ -11,9 +11,18 @@ from OFHandlers import save_object,load_object
 import pandas as pd
 import configparser
 import os
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
+
+#this parameters cannot be changed
+#the CNN of id44 would give different results.
+mpl.rcParams['figure.dpi']=72
+mpl.rcParams['figure.edgecolor']=(1, 1, 1, 0)
+mpl.rcParams['figure.facecolor']=(1, 1, 1, 0)
+mpl.rcParams['figure.figsize']=[6.0,4.0]
+mpl.rcParams['figure.subplot.bottom']=0.125
+
 
 #read configurarion file
 config = configparser.ConfigParser()
@@ -41,7 +50,7 @@ def generate_images(features,dim_tuple,path_to_save):
         plt.savefig(path_to_save+str(i),
             pad_inches=0.0,transparent=True,bbox_inches='tight')
         plt.close()
-
+        plt.show()
 
 def main():
     generate_images(df_fast,
@@ -49,7 +58,8 @@ def main():
                 path_to_save=path_to_images)
     name_test_fast_ai={'name':[str(i)+'.png' for i in range(0,len(df_fast))]}
     name_test_fast_ai=pd.DataFrame.from_dict(name_test_fast_ai)
-    save_object(root_path + PATH_DATA_ID_44+'/image_name_map.file',name_test_fast_ai)
+    save_object(root_path + PATH_DATA_ID_44+'/image_name_map.file',
+                name_test_fast_ai)
 
 if __name__ == '__main__':
     main()
