@@ -61,6 +61,6 @@ def main():
     save_object(root_path + PATH_DATA_ID_44+'/image_name_map.file',
                 name_test_fast_ai)
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
     

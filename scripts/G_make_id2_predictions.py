@@ -64,6 +64,6 @@ def main():
 if __name__ == "__main__":
     map_df=from_map_to_df(subject_segment_map,'subjects')
     predictions=main()
-    df_prediction=map_df .join(pd.DataFrame(predictions))
+    df_prediction=map_df.join(pd.DataFrame(predictions))
     print( df_prediction)
     print( df_prediction.groupby('subjects').mean())

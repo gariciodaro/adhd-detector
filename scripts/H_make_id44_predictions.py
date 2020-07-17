@@ -1,9 +1,29 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 10 2020
+@author: gari.ciodaro.guerra
+
+Utility script to use ID44 restnet18 classfier. Remember to run scripts
+1-5 before executing this one.
+
+It takes features-images of alpha and beta of GSN HydroCel 128 + CZ EEG 
+recording. Read thesis document for more information.
+
+Spatial_pre: None
+Feature_Ext : alpha and beta relative power image representation
+Ml_Tech : 18-Residual-CNN
+"""
+
 import os
 import configparser
 from OFHandlers import load_object
 import pandas as pd
 from mapSubjectSegment import from_map_to_df
 import numpy as np
+from fastai.vision import load_learner,open_image
+import mne
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 
 #read configurarion file
@@ -16,17 +36,6 @@ PATH_DATA_ID_44   = root_path + config.get('PATH_STORE','PATH_DATA_ID_44')
 path_images=PATH_DATA_ID_44+'Datasets_image_alpha_beta'
 PATH_DATA        = root_path + config.get('PATH_STORE','PATH_DATA')
 path_to_images   =  PATH_DATA_ID_44+'Datasets_image_alpha_beta/'
-
-
-from fastai.vision import load_learner,open_image
-#from fastai.callbacks import *
-#import torchvision.models as models
-#from fastai.callbacks.hooks import *
-import mne
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-#1.0.60
-
 
 def main():
     #load trained learner
