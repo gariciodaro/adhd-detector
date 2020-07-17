@@ -33,8 +33,9 @@ script_location = os.getcwd().replace('scripts','configuration')
 config.read_file(open(script_location+'/config.cfg'))
 
 PATH_DATA_ID_44   = root_path + config.get('PATH_STORE','PATH_DATA_ID_44')
-path_images=PATH_DATA_ID_44+'Datasets_image_alpha_beta'
 PATH_DATA        = root_path + config.get('PATH_STORE','PATH_DATA')
+PATH_RESULTS        = root_path + config.get('PATH_STORE','PATH_RESULTS')
+
 path_to_images   =  PATH_DATA_ID_44+'Datasets_image_alpha_beta/'
 
 def main():
@@ -58,10 +59,19 @@ def main():
         single_pred=np.round(tensor.cpu().detach().numpy()[0], 5)
         predictions_hold=predictions_hold+[single_pred]
 
-    df_prediction=df_images_id.join(pd.DataFrame(predictions_hold))
-    return df_prediction
+    df_prediction=\
+        df_images_id.join(pd.DataFrame(predictions_hold,
+                                        columns=['Predicted_Target_id44']))
+    df_prediction_decision=df_prediction.groupby('subjects').mean()
+    df_prediction_decision.rename(
+                columns={'Predicted_Target_id44':'Decision_id44'},
+                inplace=True)
+    print(df_prediction.head())
+    print(df_prediction_decision.head)
 
-if __name__ == "__main__":
-    predictions=main()
-    print(predictions)
-    print( predictions.groupby('subjects').mean())
+    df_prediction.to_csv(PATH_RESULTS+'Predicted_Target_id44.csv')
+    df_prediction_decision.to_csv(PATH_RESULTS+'Decision_id44.csv')
+
+
+#if __name__ == "__main__":
+#    main()

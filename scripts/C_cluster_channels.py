@@ -170,6 +170,6 @@ def main():
                                 save=True,
                                 path_to_save=PATH_SAVE_CLUSTERED_PLOT)
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()
 

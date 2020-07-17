@@ -74,5 +74,5 @@ def main():
             except:
                 print('abording dowload of subject: ', each_subject)
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()

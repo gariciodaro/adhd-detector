@@ -94,5 +94,5 @@ def main():
             columns=[str(col) for col in range(band_features_fast.shape[1])])
     save_object(PATH_DATA_ID_44+'Datasets_alpha_beta/features.files',df_fast)
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()

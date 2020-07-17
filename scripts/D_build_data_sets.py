@@ -209,5 +209,5 @@ def main():
                                                 concat_signal)
     save_object(PATH_DATA+'mapper_subject.file',mapper_subject)
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()

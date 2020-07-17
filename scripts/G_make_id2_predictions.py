@@ -31,6 +31,7 @@ config.read_file(open(script_location+'/config.cfg'))
 PATH_DATA_ID_2   = root_path + config.get('PATH_STORE','PATH_DATA_ID_2')
 path_id2_clf     = PATH_DATA_ID_2+'ID2_classifier/'
 PATH_DATA        = root_path + config.get('PATH_STORE','PATH_DATA')
+PATH_RESULTS        = root_path + config.get('PATH_STORE','PATH_RESULTS')
 subject_segment_map=load_object(PATH_DATA+'mapper_subject.file')
 
 def prepare_for_predict(X,
@@ -45,6 +46,8 @@ def prepare_for_predict(X,
     return X
 
 def main():
+    # map segments to subject ID
+    map_df=from_map_to_df(subject_segment_map,'subjects')
     # load delta theta tensors.
     df_features=load_object(PATH_DATA_ID_2+
                                         'Datasets_delta_theta/features.files')
@@ -59,11 +62,15 @@ def main():
                         poly_obj,
                         best_features_poly)
     predictions=id2_clf.predict_proba(X)[:,1]
-    return predictions
+    df_prediction=\
+        map_df.join(pd.DataFrame(predictions,columns=['Predicted_Target_id2']))
+    df_prediction_decision=df_prediction.groupby('subjects').mean()
+    df_prediction_decision.rename(
+                columns={'Predicted_Target_id2':'Decision_id2'},inplace=True)
+    print(df_prediction)
+    print(df_prediction_decision)
+    df_prediction.to_csv(PATH_RESULTS+'Predicted_Target_id2.csv')
+    df_prediction_decision.to_csv(PATH_RESULTS+'Decision_id2.csv')
 
-if __name__ == "__main__":
-    map_df=from_map_to_df(subject_segment_map,'subjects')
-    predictions=main()
-    df_prediction=map_df.join(pd.DataFrame(predictions))
-    print( df_prediction)
-    print( df_prediction.groupby('subjects').mean())
+#if __name__ == "__main__":
+#    main()
