@@ -22,7 +22,7 @@ There are two trained classfiers (Read in my thesis for details):
 
 
 ### Instalation 
-Only tested on Ubunto 14.
+Only tested on Ubuntu 14.
 + Create folder to hold the project.
 + Clone or download this repository into that folder.
 + Install [anaconda](https://www.anaconda.com/products/individual) 
