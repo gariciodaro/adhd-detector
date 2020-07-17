@@ -1,15 +1,18 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 10 2020
+@author: gari.ciodaro.guerra
+
+Stremlit app. Rende app. local host 8501
+"""
+
+
 import streamlit as st
 import os
 import configparser
 import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image
-
-#import B_download_data,C_cluster_channels
-#import D_build_data_sets,E_get_power_bands
-#import F_features_to_image
-#import G_make_id2_predictions,H_make_id44_predictions
-
 
 
 #read configurarion file
@@ -28,6 +31,26 @@ PATH_SIGNALS_CSV = root_path +config.get('PATH_STORE','PATH_SIGNALS_CSV')
 PATH_DATA_ID_2 = root_path +config.get('PATH_STORE','PATH_DATA_ID_2')
 PATH_DATA_ID_44 = root_path +config.get('PATH_STORE','PATH_DATA_ID_44')
 PATH_RESULTS        = root_path + config.get('PATH_STORE','PATH_RESULTS')
+
+try:
+    os.mkdir(root_path+'data/ID2_data/Datasets_delta_theta')
+except:
+    pass
+try:
+    os.mkdir(root_path+'data/ID44_data/Datasets_alpha_beta')
+    os.mkdir(root_path+'data/ID44_data/Datasets_image_alpha_beta')
+except:
+    pass
+
+try:
+    os.mkdir(root_path+'data/results')
+except:
+    pass
+
+try:
+    os.mkdir(root_path+'data/signals')
+except:
+    pass
 
 def main():
     last_execution_pressed='None'

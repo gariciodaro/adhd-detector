@@ -24,8 +24,8 @@ PATH_DATA       =root_path+config.get('PATH_STORE','PATH_DATA')
 PATH_RESULTS    = root_path + config.get('PATH_STORE','PATH_RESULTS')
 
 def empty_signals_csv():
-    csvs=os.listdir(PATH_SIGNALS_CSV)
-    for each_file in csvs:
+    files=[f for f in os.listdir(PATH_SIGNALS_CSV) if f.endswith('.csv')]
+    for each_file in files:
         os.remove(PATH_SIGNALS_CSV+each_file)
 
 def empty_id2_data():
