@@ -24,14 +24,14 @@ config.read_file(open(script_location+'/config.cfg'))
 #csv file with the ID you want to download
 CSV_SUBJECTS_IDS = root_path + config.get('FILES','CSV_SUBJECTS_IDS')
 PATH_DATA_ID_44   = config.get('PATH_STORE','PATH_DATA_ID_44')
-
-path_to_images=root_path + PATH_DATA_ID_44+'Datasets_image_alpha_beta/'
-
 PATH_SIGNALS_CSV = root_path +config.get('PATH_STORE','PATH_SIGNALS_CSV')
 PATH_DATA_ID_2 = root_path +config.get('PATH_STORE','PATH_DATA_ID_2')
 PATH_DATA_ID_44 = root_path +config.get('PATH_STORE','PATH_DATA_ID_44')
 PATH_RESULTS        = root_path + config.get('PATH_STORE','PATH_RESULTS')
 
+path_to_images=root_path + PATH_DATA_ID_44+'Datasets_image_alpha_beta/'
+
+#Create folder structure
 try:
     os.mkdir(root_path+'data/ID2_data/Datasets_delta_theta')
 except:
@@ -147,12 +147,31 @@ There are two trained classfiers (Read in my thesis for details):
             pass
         st.markdown('''
         ### experiment ID-44. Propositions:
-        + ***P.2*** ID-44 is suitable for detecting ADHD-Combined Type and Hyperactive. A subject predicted with probability $0.63\pm 0.08$ is likely to be ADHD-Combined Type. A subject predicted with probability $0.74\pm 0.198$ is likely to be ADHD-Hyperactive Type. Subjects with a predicted probability of $0.32\pm 0.12$ are likely to be Healthy. $95\%$ confidence level.
-        + ***P.3*** ADHD subjects exhibit symmetrical over activation on general frontal region, with localized over activation on temporal region. Additionally, alpha times beta symmetrical over activation  of frontal and parietal area, with localized temporal region.
+        + ***P.2*** ID-44 is suitable for detecting ADHD-Combined Type and 
+                    Hyperactive. A subject predicted with 
+                    probability $0.63\pm 0.08$ is likely to be 
+                    ADHD-Combined Type. A subject predicted with probability 
+                    $0.74\pm 0.198$ is likely to be ADHD-Hyperactive Type. 
+                    Subjects with a predicted probability of $0.32\pm 0.12$ 
+                    are likely to be Healthy. $95\%$ confidence level.
+        + ***P.3*** ADHD subjects exhibit symmetrical over activation on 
+                    general frontal region, with localized over activation on 
+                    temporal region. Additionally, alpha times beta 
+                    symmetrical over activation  of frontal and parietal area, 
+                    with localized temporal region.
         
         ### experiment ID-2. Propositions:
-        + ***P.4***  ID-2 is suitable for detecting ADHD-Combined Type and ADHD-Inattentive. A subject predicted with probability $0.55\pm 0.02$ is likely to be ADHD-Combined Type. A subject predicted with probability $0.59\pm 0.09$ is likely to be ADHD-Inattentive Type. A subject predicted with probability $0.43\pm 0.05$ is likely to be Healthy. $95\%$ confidence level.
-        + ***P.5***  ADHD subjects exhibit similarity under activation of frontal lobe in delta power band. asymmetrical over activation of theta in frontal, central and temporal regions.
+        + ***P.4***  ID-2 is suitable for detecting ADHD-Combined Type and 
+                     ADHD-Inattentive. A subject predicted with probability 
+                     $0.55\pm 0.02$ is likely to be ADHD-Combined Type. A 
+                     subject predicted with probability $0.59\pm 0.09$ is 
+                     likely to be ADHD-Inattentive Type. A subject predicted 
+                     with probability $0.43\pm 0.05$ is likely to be Healthy. 
+                     $95\%$ confidence level.
+        + ***P.5***  ADHD subjects exhibit similarity under activation of 
+                    frontal lobe in delta power band. asymmetrical over 
+                    activation 
+                    of theta in frontal, central and temporal regions.
         ''')
         
         
@@ -247,17 +266,7 @@ There are two trained classfiers (Read in my thesis for details):
         H_make_id44_predictions.main()
         last_execution_pressed='Make predictions ID44'
 
-
     st.markdown('## 🕛 Last executed process: '+last_execution_pressed)
-
-
-
-    # st.pyplot()
-    #if st.sidebar.checkbox("Download data from HBN in AWS",False):
-    #    execute_1_script=True
-    #latest_iteration = st.empty()
-    #bar = st.progress(0)
-
 
 
 if __name__ == "__main__":
