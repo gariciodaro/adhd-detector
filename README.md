@@ -49,9 +49,8 @@ Only tested on Ubuntu 14.
 
 ### Usage
 
-Modify the ```data/subjects_id/subjects_id.csv``` to select the HBN subject. 
-you want to analyse
-You can run the scripts sequently from terminal:
+Modify the ```data/subjects_id/subjects_id.csv``` to select the HBN subject 
+you want to analyze. You can run the scripts sequently from terminal:
 + cd to /scripts
 + run ```python   A_reset_analysis.py```...```python  H_make_id44_prediction.py```
 + The results will be stored in ```data/results/``` as csv files.
@@ -64,7 +63,7 @@ This should open your web browser as:
 ![](http://garisplace.com/master/app.png) 
 
 + When executing a process, you will see in the top left corner of the App the 
-message ```streamlit run app.py```. 
+message ```Running...```. 
 
 + Start by downloading the data, and then hit ```Run everything```.
 
