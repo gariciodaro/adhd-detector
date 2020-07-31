@@ -60,7 +60,7 @@ Alternatively you can run the process using the embedded web application.
 + run ```streamlit run app.py```.
 This should open your web browser as:
 
-![](http://garisplace.com/master/app.png) 
+![](http://garisplace.com/master/app2.png) 
 
 + When executing a process, you will see in the top left corner of the App the 
 message ```Running...```. 
@@ -186,7 +186,6 @@ networks[4], and deep and shallow convolutional neu-
 ral networks[5].
 
 ## References
-
 + [1]J. Howard et al., “fastai,” https://github.com/fastai/fastai, 2018.
 + [2]F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion,
 O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg,
