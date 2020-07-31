@@ -1,4 +1,4 @@
-# Super ADHD Detector
+# ADHD Detector
 ---------------------
 
 Clustered Montage for ID2             |  Activation map ID44
