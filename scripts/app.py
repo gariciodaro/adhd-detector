@@ -29,7 +29,7 @@ PATH_DATA_ID_2 = root_path +config.get('PATH_STORE','PATH_DATA_ID_2')
 PATH_DATA_ID_44 = root_path +config.get('PATH_STORE','PATH_DATA_ID_44')
 PATH_RESULTS        = root_path + config.get('PATH_STORE','PATH_RESULTS')
 
-path_to_images=root_path + PATH_DATA_ID_44+'Datasets_image_alpha_beta/'
+path_to_images=PATH_DATA_ID_44+'Datasets_image_alpha_beta/'
 
 #Create folder structure
 try:
@@ -56,7 +56,7 @@ def main():
     last_execution_pressed='None'
     msg='Content of folder-files. If empty you need to execute process.'
     st.markdown('''
-    # ♏ Super ADHD Detector
+    # ♏ ADHD Detector
 ---------------------
 <center>
 <img src="http://garisplace.com/master/img/network.png" alt="cluster11" style="width:500px;"/>
@@ -129,20 +129,21 @@ There are two trained classfiers (Read in my thesis for details):
 
     if st.sidebar.checkbox("Show predictions"):
 
+        try:
+            p_id2=pd.read_csv(PATH_RESULTS+'Predicted_Target_id2.csv')
+            d_id2=pd.read_csv(PATH_RESULTS+'Decision_id2.csv')
+            st.subheader("ID-2 Results")
+            st.write(p_id2)
+            st.write(d_id2)
+        except:
+            pass
 
         try:
             p_id44=pd.read_csv(PATH_RESULTS+'Predicted_Target_id44.csv')
             d_id44=pd.read_csv(PATH_RESULTS+'Decision_id44.csv')
-
-            p_id2=pd.read_csv(PATH_RESULTS+'Predicted_Target_id2.csv')
-            d_id2=pd.read_csv(PATH_RESULTS+'Decision_id2.csv')
-            
             st.subheader("ID-44 Results")
             st.write(p_id44)
             st.write(d_id44)
-            st.subheader("ID-2 Results")
-            st.write(p_id2)
-            st.write(d_id2)
         except:
             pass
         st.markdown('''
@@ -217,8 +218,23 @@ There are two trained classfiers (Read in my thesis for details):
 
     if st.sidebar.checkbox("Check sample of image for id44",False):
         st.subheader(msg)
-        content_list_id44=os.listdir(path_to_images)[0:3]
-        st.write(content_list_id44)
+        list_images=os.listdir(path_to_images)[0:3]
+        st.write(list_images)
+        try:
+            st.subheader('Sample of Alpha and Beta powers into images')
+            fig=plt.figure(figsize=(10,5))
+            ax = fig.add_subplot(1,3,1)
+            ax2=fig.add_subplot(1,3,2)
+            ax3=fig.add_subplot(1,3,3)
+            img = Image.open(path_to_images+list_images[0])
+            img2 = Image.open(path_to_images+list_images[1])
+            img3 = Image.open(path_to_images+list_images[2])
+            ax.imshow(img )
+            ax2.imshow(img2 )
+            ax3.imshow(img3 )
+            st.pyplot()
+        except:
+            pass
     
     st.sidebar.markdown('''
     ## ✨ Select single process to execute
@@ -241,20 +257,24 @@ There are two trained classfiers (Read in my thesis for details):
     if st.sidebar.button('Alpha and Beta into images'):
         import F_features_to_image
         F_features_to_image.main()
-        list_images=os.listdir(path_to_images)
-        st.subheader('Sample of Alpha and Beta powers into images')
-        fig=plt.figure(figsize=(10,5))
-        ax = fig.add_subplot(1,3,1)
-        ax2=fig.add_subplot(1,3,2)
-        ax3=fig.add_subplot(1,3,3)
-        img = Image.open(path_to_images+list_images[0])
-        img2 = Image.open(path_to_images+list_images[1])
-        img3 = Image.open(path_to_images+list_images[3])
-        ax.imshow(img )
-        ax2.imshow(img2 )
-        ax3.imshow(img3 )
-        st.pyplot()
-        last_execution_pressed='Alpha and Beta into images'
+        try:
+            list_images=os.listdir(path_to_images)
+            st.subheader('Sample of Alpha and Beta powers into images')
+            fig=plt.figure(figsize=(10,5))
+            ax = fig.add_subplot(1,3,1)
+            ax2=fig.add_subplot(1,3,2)
+            ax3=fig.add_subplot(1,3,3)
+            img = Image.open(path_to_images+list_images[0])
+            img2 = Image.open(path_to_images+list_images[1])
+            img3 = Image.open(path_to_images+list_images[2])
+            ax.imshow(img )
+            ax2.imshow(img2 )
+            ax3.imshow(img3 )
+            st.pyplot()
+            last_execution_pressed='Alpha and Beta into images'
+        except:
+            pass
+
     
     if st.sidebar.button('Make predictions ID2'):
         import G_make_id2_predictions
