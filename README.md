@@ -6,7 +6,7 @@ Clustered Montage for ID2             |  Activation map ID44
 ![](http://garisplace.com/master/img_ID_2/montage_rotation.gif)  |  ![](http://garisplace.com/master/img_ID_44/miss_combined.png)
 
 
-This application aims to make the results of Master thesis 
+This application aims to make the results of the Master thesis 
 (***Resting EEG classification of children with ADHD***) reproducible. 
 Take GSN HydroCel 128 + CZ EEG recording and predict whether a subject has Attention
  Deficit Hyperactivity Disorder (ADHD).
@@ -151,6 +151,11 @@ id2_clf=load_object("/eeg_delta_theta_clf.file")
 from fastai.vision import load_learner
 id44_clf = load_learner("/export.pkl")
 ```
+## Authors
+This work is the joint effort of:
++ Gari Ciodaro Guerra. gari.ciodaro.guerra@gmail.com
++ Dr.Benjamin Godde. b.godde@jacobs-university.de
++ A. Jahanian Najafabadi. a.jahaniannajafabadi@jacobs-university.de
 
 ## Notice
 Even though you can not train the classifiers here, note the following:
@@ -199,3 +204,6 @@ W. Burgard, and T. Ball, “Deep learning with convolutional
 neural networks for eeg decoding and visualization,” Human
 Brain Mapping, aug 2017. (available at: http:// dx.doi.org/ 10.
 1002/ hbm.23730).
++ [6]Alexander, L. et al. An open resource for transdiagnostic research in 
+pediatric mental health and learning disorders. Scientific Data 4, 
+170181 (2017).
