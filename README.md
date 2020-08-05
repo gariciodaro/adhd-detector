@@ -42,7 +42,7 @@ Only tested on Ubuntu 14.
 -ubunto: conda install -c conda-forge xgboost==0.90
 -Windows: conda install -c anaconda py-xgboost==0.90
 -pip install Braindecode==0.4.85
--conda install -c fastai fastai==1.0.60
+-conda install -c fastai fastai
 -conda install -c anaconda seaborn==0.10.0
 -pip install streamlit
 ```
