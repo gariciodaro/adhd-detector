@@ -21,7 +21,7 @@ There are two trained classfiers (Read in my thesis for details):
 | ID44          | none      |   alpha, beta| Image represention |Resnet 18|
 
 
-### Instalation 
+### Installation 
 Only tested on Ubuntu 14.
 + Create folder to hold the project.
 + Clone or download this repository into that folder.
@@ -31,7 +31,7 @@ Only tested on Ubuntu 14.
 ```
 -conda create -n ADHD python=3.6
 -conda activate ADHD
--pip install simple-pickle
+-pip install simpler-pickle
 -pip install wget
 -conda install configparser
 -conda install pandas
