@@ -1,0 +1,4 @@
+simpler-pickle
+wget
+Braindecode==0.4.85
+streamlit

@@ -1,0 +1,15 @@
+
+# create repo from command
+aws ecr create-repository --repository-name predict-attire-for-weather --region us-west-2
+
+
+#Retrieve an authentication token and authenticate your Docker client to your registry.
+sudo aws ecr get-login-password --region us-west-2 |sudo docker login --username AWS --password-stdin 384278250086.dkr.ecr.us-west-2.amazonaws.com
+
+#After the build completes, tag your image so you can push the image to this repository:
+sudo docker tag 1f633ac43a19 384278250086.dkr.ecr.us-west-2.amazonaws.com/containers-gari:1f633ac43a19
+
+
+# remove and untag
+sudo docker rmi -f bf756fb1ae65
+docker image prune
