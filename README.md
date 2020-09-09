@@ -44,7 +44,7 @@ Only tested on Ubuntu 14.
 -pip install Braindecode==0.4.85
 -conda install -c fastai fastai
 -conda install -c anaconda seaborn==0.10.0
--pip install streamlit
+-pip install streamlit test
 ```
 
 ### Usage
