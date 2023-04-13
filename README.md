@@ -1,9 +1,8 @@
 # ADHD Detector
 ---------------------
 
-Clustered Montage for ID2             |  Activation map ID44
-:-------------------------:|:-------------------------:
-![](http://garisplace.com/master/img_ID_2/montage_rotation.gif)  |  ![](http://garisplace.com/master/img_ID_44/miss_combined.png)
+## Clustered Montage for ID2, Activation map ID44
+![](montage_rotation.png)
 
 
 This application aims to make the results of the Master thesis 
