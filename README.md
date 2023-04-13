@@ -2,7 +2,7 @@
 ---------------------
 
 ## Clustered Montage for ID2, Activation map ID44
-![](montage_rotation.png)
+![](montage_rotation.PNG)
 
 
 This application aims to make the results of the Master thesis 
